@@ -266,11 +266,6 @@ git push origin main/master( remote branchname )
 
 ******************To push the local repo on remote******************************************************
 
-To check the which remote repo(origin) is currently linked with git.
-$ git remote show origin = This will gives us the remote repo url along with the branches in that branch.
-$ git branch -r = To see the remote branches.
-$ git remote -v => It will display all the repo's on the remote.
-
 Apne local project ko git per upload karne ke liye git per nai repo banaye, aur is remote repo ko local se link karne ke liye use the below commands. 
 
 1) Add or link the git remote repo with your local repo by using,
@@ -289,3 +284,9 @@ git push origin local-branch-name.
 
 
 ********************************************************************************************************
+
+To check the which remote repo(origin) is currently linked with git.
+$ git remote => It will display you the added or the linked remote repos with your local git.
+$ git remote show origin = This will gives us the remote repo url along with the branches in that branch.
+$ git remote -v => It will display all the repo's on the remote.
+$ git branch -r = To see the remote branches.
