@@ -1,0 +1,291 @@
+getboostrap.com for bootstrap
+
+REMOTE REPO: GitHub and Bitbucket , Sourcetree
+GITHUB LOGIN : USERNAME: gitsandeeplearner/@welcome25
+New Password = fiverivers25
+
+rm -rf .git = will remove the git from the directory.
+
+git init = To initalize the local repo folder.
+	ls = list all the files and the folders in the local repo
+	ls -lart = list all the files and folders along with the hidden files. ( It will also show the .git hidden file in the intilaze folder )
+
+To check if these user name and email is set or not, just type 
+	git config --global user.name => It will show you the set username.
+	git config --global user.email => It will show you the set email.
+
+Open the terminal and set the configuration of git by adding git username and email.
+	git config --global user.name gitsandeeplearner
+	git config --global user.email rathore25sandeep@gmail.com
+
+To check the origin of the remote currently linked.
+	$ git remote -v 
+	
+
+There are three stages of the files
+
+1) Working file Or Working directory in which we are currently working.
+2) Staging -> We can call this as a production area or the operational area, Suppose we are working on creating a function, kuch lines tak hamara code theek chal reha hai, to hum waha tak code ko staging mode mein rakh lenge aur function ko create karne ke liye age code shuru kar denge apni working directory mein, sath hi yaha tak code theek chal reha hai waha tak staging mode mein rakhte rahange. 
+			  To add the code to the staging, We use the following command:
+			  git add filename
+			  git add . ( to add all the untracked files. )
+			  To add more selected files, We use following:
+			  git add filename filename filename
+
+			  YAHA TAK CODE THEEK CHAL REHA HAI USE STAGING MEIN ADD KARKE SATH HI COMMIT MEIN DAL DO, TAKI HUM FILE KO REQUIRED CODE TAK RESTORE KAR SAKTE HAIN. 
+			  RESTORE/CHECKOUT HAMESHA STAGING SE HI BACKUP LENGE. AGAR WORKING DIRECTORY AUR STAGING SAME HAI TO FILE MEIN KUCH BI RESTORE YA CHECKOUT NAHI HOGA.
+			  RESTORE/CHECKOUT COMMAND SE STAGING MEIN JO RECENTLY CODE ADDED HOGA WO WORKING DIRECTORY MEIN A JAYEGA. 
+
+			  Agar kahi error a jati hai ya file delete ho jati hai to hum staging mein se theek code dubara le sakte hain with the help of restore command. 
+
+			  git checkout = git checkout contact.html
+			  				 It will revert the contact.html file from the STAGING area with the last added data in the staging to the current working	directory if there will be any change in the code. 
+
+				Is command se sara new data delete ho jata hai jo abi tak staging nahi hua hai.
+
+			  git checkout -f (It will revert back all the changed file with the last staged files.)
+			
+				Checkout command hamesha Staging se backup leta hai, yeh command staging se data working file mein load kar dega jab tak new changes stage nahi hai.
+
+				git checkout = Agar file mein kuch (galti se kisi se)changes hui hai per abi woh changes stage nahi hai, to main checkout command se us changes ko khatam kar sakta hu. It will revert the contact.html file from the STAGING area to the current working directory.   
+				
+				
+
+				git checkout hashId filename = It will revert the file from the LOCAL repo(Commited file) not from the staging to the working file. 
+
+				HEAD DETACHED AT = This means a new branch is there and head is switched to that branch. To go back to the main branch, just type git checkout master.
+
+				Modified->Green = File staged
+				Modified->Red =   File is not staged yet.
+				git restore = git restore --staged filename, to unstage the file from staging area. Now the file will be in the working directory and The data will be there in the "modified" form in red color. 
+			  
+				git restore = git restore --staged filename, to unstage the file from staging area ya staging se backup lene ke liye. Now the file will be in the working directory and the data will be there in the "modified" form, means once the file is added into the staging area and we can take the backup.
+				Is command se new  data delete nahi hota. aur file bi unstage ho jati hai.
+
+				git checkout -- differ.html = If this file is present in the staging then it will take the backup from staging. Agar file staging mein nahi hai to yeh command last commit se data load kar degi. means backup from commited file if it is not present in the staging area.
+
+			  	Aur agar hum "Commit" se backup lena chahte hai to "git checkout hashId filename" use karte hain.
+			  	Working file ko last commit se load kar dega BUT also staging mein bi kuch nahi hoga. Working file ka sara data delete kar dega.
+			  
+				  
+			  git restore --staged . = ab staging mein koi bi data nahi hoga as a backup. Jo bi data staging mein hai Last commit tak, use modify form mein le ayega aur ab staging mein koi bi data nahi hoga. File ko staging se bahar le ayega per git abi bi file ko track kar reha hai.
+			 			 
+			  git checkout -f = will revert all the changes from all the files with Staging files.  
+
+			  Agar file DELETE ho gayi hai to always use:
+			  git restore filename = It will restore from staging if present otherwise from the commited file.
+
+			  Both Git checkout and git restore are same commands. git restore is much better.
+
+			  The main difference between git restore and git checkout is that git restore is used to restore files from the staging area or from a previous commit, while git checkout is used to switch branches.
+
+			  git restore => Restores files from the staging area or from a previous commit.
+			  git checkout => Switches branches.
+
+			 	 
+			  git rm --cached filename = This is used to untrack the file from git. It will change the state of the file to "untracked" file with all the data in the working directory there. Yeh command staging mein pada hua sara data delete kar degi, means apka new staging data sab khatam. Is command ko chalane se pehle yaha tak apka data theek chal reha hai use commit kar lo. 
+			  Yeh command khatarnak hai, Agar is ke baad aap restore command chalate ho to yeh committed file se last comitted data restore karegi, yeh command staging se sara data delete kar degi.
+
+			  iske baad sirf rm filename command se yeh file folder se puri tarah se delete ho jayegi.
+
+			  Now git terminal mein is deleted file ko commit karde by using git commit -am "file deleted"
+			  Now check git log, it will show deleted file.
+			  To restore this deleted file, use git checkout hashid filename.
+		  
+
+							   
+3) Commit(Local Repo) ->  If our code is working well without any error and is ready, then we can Commit this code. Means the code is safe and ready to move on the server. Please note that while commiting the code we need to put an appropriate message for the commit. Because commit makes the logs(records). 
+
+			 	git commit = Final files which are ready to move on the server.
+				git commit filename -m "appropriate message".
+				agar message nahi diya hai to , it will open a vim editor, type the message there and type :wq! to exit from the vim editor.
+
+				git commit -a -m "message" OR (-am "") = This will skip the staging area and commit directly with one command. BUT at least ONCE YOU HAVE TO ADD THE NEW CREATED FILE WITH GIT ADD -A COMMAND. THEN WE CAN USE THIS COMMAND.
+
+			 In future if there is any error, to hum commit ke logs ko check karke, yaha tak code theek chal reha tha, messages ki help se code revert back kar sakte hain. 
+
+			 With the help of the messages we can check that on this particular commit which functionality is added in the code or file. 
+
+			 For revert back, we will use the following command:
+
+			 git revert = To back to any commit and it will save the rest of the data with another commit.
+				 		  git revert commitId.
+
+			 git reflog = 	This will show all the logs/history of the commits. And we can use this command to move to any commit.	
+			$ start chrome = To shart chrome.
+
+			$ code . command is used to open the visual studio.
+
+			There are two ways to get the code a) Clonning b) initalizing
+
+			Clonning will take the full data from the server to local repo. => will study it later.
+			Initalizing will intalize the local repo. 
+	
+			Commands 
+
+	To open Sublime editor or files/folder in Sublime from git terminal -> On comd promt, type sysdm.cpl. It will open the advance system property box where we add new enviornment variable for sublime editor and will give the path where the sublime editor is installed. Now under the path variable add ";%SUBLIME%" at the end. Restart the terminal. 
+	Sublime is ready now. TYPE subl.exe OR subl ( subl.exe filename ) in terminal and sublime will open.
+
+	My computer->properties->Advanced->Enviornment variable->New->path of sublime editor installed->changes in path varibale
+
+	CONTEXT MENU(RIGHT CLICK) + S IS USED TO OPEN GIT BASH TERMINAL.
+
+
+	$ touch = create new file. 
+			  $ touch abc.html => create new abc.html blank file.
+
+	$ rm filename -> to remove a file
+	Agar koi file delete ho kar commit ho chuki hai to wo file restore nahi hi sakti.
+
+	$ subl abc.html = To open a file in Sublime editor.
+
+	.gitignore = If we want some files not to be tracked by git, then we will create a file by name .gitignore. and put the name of the files which should not be tracked in this file e.g Readme.txt then git will not track this file. Also we need to add .gitignore file in the staging server and will always commit this file. Now if we make any change in the files mentioned in .gitignore file then this change will not be tracked by the git.
+
+	git status = Show all the untracked and modified files means on which you have recently worked OR the file which is not added/tracked by the git. In other words, file is in the working folder/directory. Whenever you make the changes in the file, go for git status, It will always show the untracked files.
+
+	git commit -a -m "message" = This will skip the staging area and commit directly with one command. BUT ONCE YOU HAVE TO ADD THE NEW CREATED FILE WITH GIT ADD -A COMMAND. THEN WE CAN USE THIS COMMAND.
+
+	git commit --amend -m "message" = To change the recent message.
+
+	git rebase -i Head~2 = It will change the message of the second commit.
+
+	git log = To see all the commits and the messages.
+
+	git log abc(filename) = This will show the logs of abc file only.
+
+	git log --name-only = This will give the file name and message.
+	
+	git log -2 = To get last two commits.
+
+	git log -p = To see what are the changes (means the difference) in the new committed file along with the logs.
+
+	git log --oneline -3 = This will show the last 3 commits in oneline along with hash value and commit message. 
+
+	(Good)git log about.html --oneline -2
+	OR
+	(BEST)git log --stat -2 = It will show the commit history along with the file name. 
+
+	:q = This is used to get back the command terminal of the git.
+
+	:wq! = To exit from the vim editor.
+
+	git diff = To check if the working and staging file are same.It will check the difference between file which is in the working directory and the file which is in the staging. We can revert the changes with "git checkout" command and now the working directory have the file which will be in the staging area.
+
+	git diff about.html = will check the diff between the working and staging about.html.
+						Agar koi difference nahi milta to means both WORKING and STAGING files are same.
+
+	git diff --staged = This will check the difference between the staging file and between Commited/repo file.
+
+	git diff --staged about.html = will check the difference between staging and commited about.html	
+
+	
+	git reset = To rollback the changes in the git commit.
+	
+				git reset --hard hash value of the old commit. 
+				e.g reset to 2nd commit from 4th commit.
+					This will remove all the other later on commits from the 2nd commit AND load the current file with the 2nd commit in the working directory. ALL THE DATA WILL BE LOST AFTER THE 2ND COMMIT.
+					check git log.  
+				git reset --soft hash value of the old commit.	
+					This will also remove the later on commits from the 2nd commit along with the log, BUT THE CONTENT WILL BE THERE IN THE FILE AND IT WILL NOT BE LOST. NOW ALL THE DATA AFTER THE 2ND COMMIT WILL BE IN THE STAGING AND NEEDS TO BE COMMITTED AGAIN. So, there will not be the loss of the data.
+					matlab "login functionality" tak 2nd commit kiya. After that 3rd commit and 4th commit.
+					Per kuch der baad koi error ane ke karan maine 2nd commit tak reset kar liya, to meri file se 3rd and 4th commit ka data jayega nahi, balki wo bi wahi rehega aur file staging mein rahegi.
+					git se 3rd and 4th commit khatam ho jayegenge. now file aisi hogi jaise login tak sab kuch theek chal reha hai aur uske baad maine jo galat code kiya hai wo bi staging mein hoga, jise mein theek karunga.
+
+	We can modify both the staging and committed file.
+
+	git revert = To back to any commit and it will save the rest of the data with another commit.
+				 git revert commitId.
+
+	git reflog = 	This will show all the logs/history of the commits. And we can use this command to move to any				  commit.	
+					git reflog show chat (branchname). It will show only the log of chat branch.
+
+
+	$ clear =  To clear the terminal.
+
+
+	git rm filename = It will remove the file from the working directory as well as from the staging.
+			 git rm waste.html
+
+	git rm -r directory name = This will remove the directory.			
+
+
+	deleted file ko chahe checkout karo chahe restore karo to yeh comitted + staging , means last staging tak ka sara data file mein le ayegi.
+
+1) Scnerio
+
+first line to commit
+maine second line shuru kar di hai, per abi yeh puri nahi hai, main ise staging mein rakhne laga hu. kal fir yehi se continue karunga.
+ab maine aj aa kar bahut sara code galat likh diya.
+jise main delete kar ke dubara staging se shuru karna chahta hu , to main restore command use karunga, jo muje staging tak ka data de dega. Yeh git status mein modified data bi show nahi karega, jise kuch hua hi nahi, jise aj maine a kar koi kam kiya hi nahi.
+
+Answer: Restore/Checkout apko staging se hi backup dega, agar working or staging dono same hain to kuch bi restore nahi hoga. Backup ke liye apko hamesha commit karna padega. ap pechla backup wahi se le sakte ho.
+
+
+
+******************************BRANCHING*************************************************************
+
+git branch = To create branch. This branch will be created on local.
+git branch chat (branchname). All the data of the main branch will also be copied in the new created branch.
+git branch will list all the branches.
+git checkout branchname = To enter into branch
+  git checkout chat 
+
+git checkout -b chat = To create branch and enter into the branch.
+
+Agar main apni koi nai local branch ko remote per upload karna chahta hu to,
+git push origin local-branch-name.
+
+Jab aap apni branch ko remote per upload kar do tabi us branch ki files local per alag branch mein show hongi, usse pehle nahi, usse se pehle new branch local per reflect nahi karegi.
+
+
+git merge branchname= It will merge the branch to the main branch.
+Go to the branch where you want to merge with git checkout branchname
+now git merge branchname ( the branch which needs to be merged)
+git log. It will show all the commits of main and merged branch.
+
+To delete a branch from Local
+ git branch -d branch-name
+
+To delete the branch forcelly
+git branch -D branch-name
+
+To delete a branch from remote 
+ git push origin --d branch-name
+
+
+
+*******************************Uploading on remote github*******************************************
+
+
+git clone : It will take the all the files and folders from remote repo (github) on our local machine.
+git clone url(shift + insert) myclonename (name of the folder on local machine)
+Or
+git clone url(shift + insert)
+make the changes and then,
+git push origin main/master( remote branchname )
+
+******************To push the local repo on remote******************************************************
+
+To check the which remote repo(origin) is currently linked with git.
+$ git remote show origin = This will gives us the remote repo url along with the branches in that branch.
+$ git branch -r = To see the remote branches.
+$ git remote -v => It will display all the repo's on the remote.
+
+Apne local project ko git per upload karne ke liye git per nai repo banaye, aur is remote repo ko local se link karne ke liye use the below commands. 
+
+1) Add or link the git remote repo with your local repo by using,
+git remote add origin "remote_repo_link" where origin is the alias of link and it can be any name.
+
+2) Now push your local repo on remote repo by using,
+
+git push -u origin master(remote branch)  = -u is as a refrence, it will link the local branch(master in this case) with the origin(remote repo) 
+
+git push origin main/master(remote branch) 
+
+********************************************************************************************************
+
+Agar main apni koi nai local branch ko remote per upload karna chahta hu to,
+git push origin local-branch-name.
+
+
+********************************************************************************************************
