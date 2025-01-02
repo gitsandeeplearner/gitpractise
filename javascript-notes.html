@@ -1,0 +1,264 @@
+Source for notes - Yahoo Baba
+
+Javascript is an event based programming language.
+
+Isko hun html file mein yaha BODY tag band hota hai usse upper lagate hain taki file fast load ho sake.
+
+Js ka jo script tag hai wo hum body tag band hone ke upper lagate hain. e.g.
+
+<html>
+
+<body>
+	html code goes here........
+
+	<script type="text/javascript">
+
+	</script>
+</body>
+
+</html>
+
+Js mein kuch bi likhne ke liye hum document.write("hello world"); use karte hain.
+
+html tag ko js mein use karne ke liye hum "<br>" inverted comma mein likhte hain.
+
+Js ki testing ke liye hum console use karte hain. e.g.
+console.log(x);
+
+yeh insepect element mein console tab ke under print hoga.
+
+varible decelaration <br>
+hum variable "var", "let" aur "const" se decelare kar sakte hain.
+"var" se hum agar ek ko 2 baar bi decelare kar de to koi error nahi ayegi. "var" se hum variable to dubara value assign
+kar sakte hain. Per agar "let" se declare karange to error show karega. <br>
+"const" se value change nahi hogi aur dubara declare karne per error ayegi.<br>
+
+Js mein array ki bi data type object show karta hain.
+Agar ap array ko print karte ho to wo array ki value ko print kar dega.
+Agar hum object ko print karte hain to [object Object] print karega.
+
+Array
+var a = ["name","class","Roll No"]; JS mein ese yeh object hi lega. But other languages mein ise array lega.<br>
+document.write(a); It will print the array.<br>
+Array mein index or value hoti hain. <br>
+Another method to create an array without predefined values.<br>
+var a = new array();
+a[0] = "Ram";
+a[1] = "Sita";
+document.write(a); It will print the array.<br>
+for or forEach loop is used to get all the values of an array.
+
+Array ko string mein convert karne ke liye, var a = array.toString();
+Array ke kisi bi method ko use karna hai to hum array . ke sath access karenge.
+like,
+array.concat(array);
+array.toString();
+array.filter(); -> will generate another array on the behalf of some conditions.
+array.map(); -> Will generate another array of same length by some calculations.
+array.fill();
+array.forEach(); -> To print all the values of an arrays.
+
+
+Per Object mein index ki jagah keyname aur uski value hoti hain. And it always start with {} brackets.<br>
+Array mein hame index se pata nahi chalta ki yeh value kaya hain. But in object hame Key-name se pata chal jata hai ki
+value kaya hain.<br>
+
+Object
+var o = {key:"value",key:"value",key:"value"};<br>
+document.write(o); It will print the [object object].<br>
+Object ko hum console.log mein check kar sakte hain.<br>OR<br>
+document.write(o.key)-> It will print the value.<br>
+var o = {
+fname:"Sandeep",
+lname:"Kumar",
+fullname:function(){
+this.fname+" "this.lname;
+}
+};<br>
+Yaha "this" se hum "o" object ki key-name ko get kar rehe hain.<br>
+
+Another method to create an object without predefined values.<br>
+var ob = new Object(); --------CASE SENSETIVE.
+ob.firstname = "le";
+ob.lastname = "chak";
+document.write(a.firstname); It will print the object.<br>
+for/in loop is used to get the values of all the object.
+for(var d in ob){ // Yaha per object ek array ban jata hai.
+document.write(ob[d]);
+}
+
+document.write(ob.length); This will not work for object..
+
+Array's mein index aur value hoti hai jabki Object main "Keyname" aur values hoti hain, isliye object mein hume keyname
+se data ke bare mein pata chal jata hai.<br>
+
+Array mein hamare pass sirf data hota hai, jis ka koi relation nahi hota ki hame pata chale ki yeh data kis liye hai,
+e.g:
+var student = ["sandeep",25,55];
+ab upper se hame yeh nahi pata chalta ki 25 aur 55 kya hai? Ise dur karne ke liye hamare pass objects hain jisse hame
+data ke bare mein pata chal jata hai,e.g:
+var student = {name:"Sandeep",age:25,marks:55}
+
+
+Jab bi hamare pass data hota hai e.g students ka, aur use hum relation mein show karwana chahte hain to
+
+To print in the "CONSOLE" FOR Testing purpose, We use console.log. It will print in the console of the browser.<br>
+
+DOM = Document Object Module (DOM) is used to get and set the values of any selector(Id/class/tagname) with methods like
+innerText, innerHTML,getAttribute,attributes.
+
+Target By:
+Id = getElementById
+class = getElementsByClassName
+Tag = getElementsByTagname(tagname)
+
+With the help of these, hum kisi bi tag ko target karke uski html,text and attributes ko get aur set kar sakte hain by
+using below properties.
+document.getElementById('header').innerHTML; -> This will the inside html of the tags
+document.getElementById('header').innerText; -> This will provide the text of the tags.
+document.getElementById('header').getAttributes;
+
+Agar upper ke teeno use nahi karne to hum ek common bi use kar sakte hain jis mein teeno mein se koi bi selectors de
+sakte hain.
+document.querySelector(id/class/tag).innerHTML => Yeh pure document mein yaha selector pehle mil jayega usi per target
+karega, baki chod dega.
+document.querySelectorAll(id/class/tag).innerHTML => Yeh pure doument mein target karega.
+
+To create new element:
+var a = document.createElement("p");
+To create new text:
+var t = document.createTextNode("This is the text through javascript");
+To append text in tag:
+a.appendChild(t);
+To append new tag in html:
+document.getElementById("about").appendChild(a);
+Yaha pehele sirf append kar rehe hai. Hum pehle tag create karte hain baad mein append karte hain. Aise hi text create
+karte hain fir append karte hain.
+
+Create and Append(on specific position) method:
+insertAdjectTag -> Will create and append the tag. <p></p>
+
+Good one = insertAdjecentHTML -> Will create the html-tag and text as well. <p>This is text along with tag.</p>, Yeh
+brackets
+mein 2 parameter lega
+insertAdjecentHTML("position",tag+text);
+Position se hum kahi bi newly tag ko laga sakte hain.
+
+insertAdjecentText -> Will create the text and append in html file.
+Specific positions:
+beforebegin
+afterbegin
+beforeend
+afterend
+
+
+DOM ki CSS set aur get kar sakte hain by:
+document.getElementById('header').style.background
+document.getElementById('header').ClassName[0]
+document.getElementById('header').classList
+
+document.getElementById('header').style.color;
+Multiple style add karne ke liye hum style.cssText = "color:red; height:100px; width:100vw; background:tan;";
+
+Or with .setAttribute("style","color:red;background:tan");
+
+
+Agar hum kisi tag per new class lagani hai to hum use karte hain:
+.setAttribute('class','abc');
+.className = "abc xyz pqr"; => className string hai isliye multiple classes dete hue hum space dete hain.
+.classList.add('abc','xyz','pqr'); => classList ek array hai, isliye class add karte hue hum comma dete hain.
+.classList.remove('abc');
+
+NOTE: className mein Multiple Classes add karte hue comma nahi dena hai, we will use space.
+
+class assign karne ke liye hum className use karte hai kyuki = sign use hota hai. Aur classes remove aur append karne ke
+liye hum classList hi use karte hain kyuki ismein method use hota hai.
+Always use classList, sare kam karte hai.
+
+var cl = document.querySelectorAll('#header').className = 'abc xyz';
+console.log(cl); It will print classes in string.
+
+classList is good to add and remove the classes.
+var cll = document.querySelector('#header').classList.add('abc','efg');
+var cll = document.querySelector('#header').classList.remove('efg');
+console.log(cll); It will print classes in array so that we can easily remove the classes.
+
+
+Events methods -> Ismein camel case nahi hota hai, Jise hum html file mein html tag per koi event call karte hain = sign
+de kar, waise hi hum js file mein bi event ko = de kar function call karte hain.
+
+Click = onclick,
+Double Click = ondblclick,
+Right Click = oncontextmenu,
+Mouse hover = onmouseenter,
+Mouse Out = onmouseout,
+Mouse Down = onmousedown,
+Mouse Up = onmouseup,
+Key press = onkeypress, => It will only work with the forms or in the body tag.
+Key Up = onkeyup, => It will only work with the forms or in the body tag.
+Load = onload, => It will only work in the body tag.
+Unload = onunload, => It will only work in the body tag.
+Resize = onresize, => It will only work in the body tag.
+Scroll = onscroll. => It will only work in the body tag.
+
+Event Listener
+
+Agar hum html tag mein koi event ka function trigger karte hain to woh funtion hame html file mein hi banana padega, jis
+se html file ka size bada ho sakta hai. Ise hum js file mein bi 2 tareeke se trigger kar sakte hain.
+
+Agar hum ek hi html tag per ek hi event ko multiple time trigger karange to yeh error de dega.
+Ise hum addEventListener method se resolve kar sakte hain.
+
+1) document.getElemtById('header').onclick=abc (abc is a function);
+function abc(){
+document.getElementById('header').style.background = 'green';
+}
+
+addEventLister bahut zayada use hota hai kyuki hum ek hi html tag per bahut se event trigger kar sakte hain.
+Is mein hum ek hi click per multiple event bi trigger karwa sakte hain.
+
+2) document.getElementById('header').addEventListener("click",funciton-name);
+OR
+document.getElementById('header').addEventListener("click",function(){
+
+});
+
+
+Advance Javascript:
+To print variable
+var name = "Sandeep kumar";
+document.write(`Hello "${name}" `);
+
+Ashrit Adhar complaint no - s2082883114000
+
+
+
+Json :
+Data exchange format between client and server like XML, but its not a language.
+Object of objects is Json. It starts with currly braces just like object.
+Json mein keyvalue hamesha ji double inverted comma mein hogi, yeh jaruri hai. Single inverted comma mein bi nahi.
+Javascript mein bi hum keyvalue ko double ya single inverted comma mein de sakte hain, per yeh optional hai. Agar
+javascript ki key value mein space hai to use hum inverted comma mein de sakte hain.
+
+{
+"students":[
+{'First name':'sandeep kumar', 'Age':45,'city':Pathankot},
+{'First name':'Rajan', 'Age':40,'city':GSP},
+{'First name':'Aman', 'Age':42,'city':ASR}
+]
+}
+Json = {"key":"value","key":"value","key":"value"};<br>
+
+Json is mainly used in the API'
+What is an API? => Humne ek website banai hai php mein by using mysql db, sath mein hum website ki Andriod aur Iphone
+app bi banana chahte hain to hum en teeno ko mysql se data provide karane ke liye hum API likhinage jo mysql se data
+lega aur JSON format mein return karega jise hum en teeno ko pass kar sakte hain.
+
+search for jsonplaceholder in google for fake and dummy api's data.
+
+
+
+************************************
+
+margin-inline:10px 40px; yeh hai margin from left and right in one line. dono same bi de sakte hain, margin-inline:10px;
+margin-block: 20px 30px; margin from top and bottom.

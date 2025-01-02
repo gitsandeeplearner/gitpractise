@@ -1,0 +1,585 @@
+Refrence - Yahoo Baba , Tech Gun , Thapa techmical, wscube<br>
+
+To check mobile responsive in mozilla use ctrl + shift + m
+
+Agar js enable nahi hai to hum niche wala tag use karte hai:
+<noscript>Please enable Javascript</noscript>
+
+Tech Gun -> Semenatic elements like <header></header>,<aside></aside>,<footer></footer>,<Nav></Nav>,<article></article>,
+Yeh hum HTML5 mein use karte hai, Pehle hum HTML4 mein div tag use karte the layout banane ke liye, div tag abi bi htnl5
+mein use hota hai.
+
+favicon title mein show karne ke liye
+<link rel="Icon" href="path of an image"> => Old method
+
+New method
+google favicon generator
+
+CSS Import karne ke liye, we use @import
+@import "navgation.css";
+@import url("https:abc.com/assests/css/abc.css");
+
+To chose the hexa color , colorhunt.co, websafecolors.in
+
+Icons like facebook,twiter,doctor,email, contact etc lagane ke liye, we use "Fonts Awesome" video:
+
+icon finder per bi hame icons mil jate hain.e.g ul ki list mein show karne ke liye.
+
+google fonts
+
+To imports fonts css and icons.
+google fonts => search for google fonts.
+Google search => Fonts awesome cdn in the "How to use" menu and we will copy the link in our css.
+<link rel="stylesheet" href="">
+
+icons => google search Font awesome icons for menu or other icons, copy the class along with the tag and paste it where
+you want to display these icons.
+
+To download high quality images = unspalsh website.
+
+body{
+font-family:arial, Helvetica,sans-serif; (By default font)
+}
+
+a{
+color:red;
+<!-- Isme jo css hai wo sare hi anchor tags per lagegi -->
+}
+
+.para p{
+color:red;
+}red table and the name of the substance is equal to the main course and this is not the statement.
+<!-- Isme jo css hai wo sirf usi p tag per lagegi jiski class para hai  -->
+
+#header a{
+color:red;
+}
+<!-- isme jo css hai wo sirf usi anchor tag per lagegi jisme id header hai -->
+
+ul#menu li{
+color:red;
+}
+<!-- Isme jis ul ki id menu hai uske li ko yeh css lagegi -->
+
+ul>li*3>a gives below output
+<ul>
+	<li><a href=""></a></li>
+	<li><a href=""></a></li>
+	<li><a href=""></a></li>
+</ul>
+
+ul#nav>li*3>a gives below output
+<ul id="nav">
+	<li><a href=""></a></li>
+	<li><a href=""></a></li>
+	<li><a href=""></a></li>
+</ul>
+
+
+ul#nav>li.li-class$*3>a =>gives below output
+
+<ul id="nav">
+	<li class="li-class1"><a href=""></a></li>
+	<li class="li-class2"><a href=""></a></li>
+	<li class="li-class3"><a href=""></a></li>
+</ul>
+
+
+pseudo class => Wo jo selector mein colon(:) ke baad ata hai, e.g a:hover
+
+Tech-Gun
+Pseudo code starts with :(e.g :link,:hover,:root,:nth-child(Yeha koun si row select karni hai))
+li:first-child{
+yaha first row select hogi.
+}
+p:first-child{ yaha "p" tag kisi ka child hona chahiye means kisi ke under hona chahiye.
+color:blue;
+}
+p:nth-of-type(2){ yaha "p" tag ko kisi ka child hone ki jarurat nahi hai, yeh sabi per work karegi, bina parent wale aur
+parent wale dono per. yaha yeh har 2nd p tag chahe uska koi parent hai ya nahi sabi ko target karega.
+color:grey
+}
+
+li:last-child{
+Yaha last row select hogi.
+}
+li:nth-child(2n OR n){ n zero se start hoga.
+yaha n=0 se start hoga and 2 se multiply ho kar wo wali row ko select kar lega.
+color:red;
+}
+
+li:nth-child(even/odd){
+Yeh odd or even select karega.
+color:yellow;
+}
+li:nth-child(2n+1){
+yaha n=0 se start hoga and 2 se multiply ho kar, 1 add karega aur wo wali row ko select kar lega. Yaha yeh 1st row
+select karega.
+color:red;
+}
+.pseudo-n p:nth-child(2n){ tag ke sath pseudo class work karti hai. tag deni jarurui hai. Isme jis paragraph ko .pseudo
+class lagi hai uske nth child ko yeh css lagegi.
+color:indianred;
+
+}
+
+input[type="text"]:focus {
+border: 5px solid red;
+}
+input[type="text"]:focus + label{ focus ke next label ka color red ho gaye.
+color: red;
+}
+
+div p{
+div ke ander tak ke sare p.
+}
+
+div > P{
+div ke ander sirf direct child p.
+}
+
+
+input[type="checkbox"]:checked{ /* checkbox ke sath hamesha box-shadow kam karti hai*/
+box-shadow: 0px 1px 20px 0px inset(optional, shadow ko box ke ander dikhane ke liye); Good example , hum transition ke
+sath use kar sakte hain hover per
+box-shadow: 0(vertical left-right minus mein bi de sakte hain) 0(horizontal top-bottom minus mein bi de sakte hain)
+0(shadow dikhyega blur-kitna dundla dikhana hai) 3px(kitna falega spread) red;
+}
+
+input:required{
+border: 3px solid red;
+}
+
+:root{} = used to define the same property on different classes/id's.
+We can make as many rules as we need.
+var() = is used the get the property.
+To define the rule, we follow:
+:root{
+--variable-name:value;
+--main-color:red; OR _main-color:red;
+--p-width:300px;
+}
+
+To use the above variable, we use:
+.classA{
+color:var(--variable-name);
+width:var(--p-width);
+}
+.classB{
+width:var(--p-width);
+}
+
+Pseudo elements
+p::first-letter{ paragraph ke first letter ki styling ke liye.
+color:green;
+font-size:15px;
+}
+p::first-line{ paragraph ke first line ki styling ke liye.
+color:green;
+font-size:15px;
+}
+::placeholder{ sare placeholder red ho jayenge.
+color:red;
+}
+<!-- Yeh section ke pehle dikhega -->
+section::before{
+content: "This text is before";
+}
+
+display:flow-root; kabi float:left/right dene se aise lagta tha jaise internal div external div se bahar a gaya hai, aur
+external div upper hi band hi gaya hai, to is property se yeh problem overcome ho jati hai.
+
+
+Tech-Gun
+::selection{ text ko select karne per basckground yellow ho jayega.
+color:red;
+background-color:yellow;
+}
+
+*******************************************************
+
+RGB - Red Blue green
+Red = 255 0 0; or #ff 0 0;
+Green = 0 255 0; or 0 #ff 0;
+Blue = 0 0 255; or 0 0 #ff;
+Red = rgb(255,0,0);
+
+
+
+*******************************************************
+
+<!-- To make the website responsive -->
+Devices ke according font-size bi change hona chahiye. So, We need to use the units like em, rem. em units will change
+according to their parent element value, but rem units will change according to their root value, so rem is good.
+Har font-size ko rem mein dene ki koshish karo.
+
+16px = 100%
+1px = 6.25%
+10px = 62.5%
+1rem = 62.5%
+1rem = 10px;
+html{
+font-size:62.5%
+}
+1rem = 10px;
+
+h1{
+font-size:5.4rem;
+}
+p{
+font-size:3.6rem;
+}
+
+margin: auto; ke sath hamesha us div ko width deni padti hai warna yeh kam nahi karta, is se div center mein a jayega.
+div ke andar koi text hai aur agar us div ko width aur margin do to woh center mein a jayega. Per agar div ke ander
+multiple div's hai to wo margin auto nahi lete.
+
+Agar kisi div ka content thoda hai aur muje kam se kam height ek had tak dekhani hai to main min-height ka use karunga,
+aur agar height zayada hoti hai to to height automatically zayada ho jayegi.
+
+
+bordor-radius:10px 20px 20px 10px => div ke square border ko circle karne ke liya.
+
+box-shadow:top(2px) bottom(4px) blur(5px) spread(10px) orange, (optional multiple)top(2px) bottom(4px) blur(5px)
+spread(10px) orange;
+
+
+<meta charset="utf-8">
+<meta name="keywords" content="Yaha hum keywords likhte hain jo SEO , Google search mein kam ate hain.">
+<meta name="description" content="Yeha website ke bare mein thodi description likhte hain.">
+<meta name="robots" content="index, follow">
+<meta property="OG"> => This is to share on the facebook , twitter and on other
+NOTE:- Keywords and description must be different of all the pages in the website.
+
+Important :- Niche wala hamesha hona chahiye.
+
+body{
+width:100%;
+height:100vh;
+background-color:#f0f0f0;
+<!-- light cream color -->
+}
+
+*{ /* This is the most important to declare in every css*/
+margin: 0;
+padding: 0;
+box-sizing:border-box;
+overflow:hidden;
+}
+margin:auto; = yeh div ko center mein karta hai. But "margin:auto" ke sath "width" dena bhot jaruri hai.<br>
+
+border:1px solid red;
+border-collapse:collapse; Yeh sare overlap borders ko theek kar dega.
+
+Always try to give the width in percentage. It will be usefull in responsiveness.<br>
+Aur height hamesha hi pixel mein ya vh mein di jati hai.<br>
+min-height is very useful.<br>
+
+video{
+width:100%;
+height:auto;
+}
+div ko padding ya border dete hi box-sizing property ka use karen. isse div ki width nahi badegi.<br>
+
+Agar div ki height kam hai aur data ki height zayada hai, to data div mein se overflow ho jayaga. ise theek karne ke
+liye overflow property use karte hai<br>
+overflow : hidden/scroll/visible<br>
+
+Yahoo Baba per height overflow ke liye Query post ki hai - video no. 13 .<br>
+Border-radius:left right bottomright bottomleft ko hum pixel/percentage mein bi de sakte hain.<br>
+
+If the property "display:block" is given to an inline element, it will break the next line to a new line beacuse the
+inline element now has become a block, but if it is given to a class or an id then it will not break and continue with
+the same line
+
+Note: There should not be space between tag and class/id;
+/* Tag and class/id will not share the same property
+Wrong format -> span .a
+Right format -> span.a
+
+Space will be in the block elements.
+
+"display:inline-block" property will keep the two blocks in the same line.
+
+"Block takes the full width of the screen and new element starts from the new line, but the width of the
+block can be handled with "width" property and giving the "margin:auto" which is must. "width=500px" property will give
+problem on the small screens and will show a horizontal toolbar but with the "max-width:500px" and "margin:auto" (
+"margin:auto" takes the block or the content of the block to the center ) property it will not show the horizontal
+toolbar on the small screens.
+NOTE: Always use max-width for the better results with responsiveness;
+*/
+
+Span tag per margin,padding, width property kam nahi karti hai. means text tag per yeh properties kam nahi karti hain.
+Agar yeh properties deni hai to span tag ko hame display:inline-block dena padega, kyuuki yeh sari properties block
+element ke sath kam karti hain.
+
+There are four state of the links which must follow the following order
+1)a:Link
+2)a:Visited
+3)a:Hover
+4)a:Active
+
+******************************************POSITIONS: TECH GUN*********************************************
+
+positon:absolute/relative/fixed/sticky;
+top/right/bottom/left:10px;
+
+Har position ko top,bottom,left, right dena jaruri hai.
+
+
+Every element has "position" value which we will use with top, left, bottom and right property.
+By default every element have static position. It has no top, bottom, left, right property.
+
+Margin-top is the margin between two elements. But position:absolute; top:80px; is from the top of the screen aur jis bi
+tag ko yeh position di hai woh tag apni jagah se uper uth jayega, means woh tag apni position chod dega aur dusra tag
+uski position le lega. matlab position:absolute lete hi ready ho jata hai move karne ke liye absolutely.
+Position:absolute apne parent div ki position ke hisab se chalta hain.
+
+And in position:relative; top:80px; is the position with respect to its actual position. per isme jis bi tag ko yeh
+position di hai woh tah apni position nahi chodta.
+
+Position relative is compared to the actual/current position of the element.And we can move that element
+with the top, left, bottom and right property from its original position. Agar hum ise use karte hain to yeh element
+dusri element mein ja kar overlap karega ya kar sakta hai. Suppose we are not using
+these property(top,bottom etc) with the position:relative then it will behave same as the normal position.
+position relative move ho jata hai per apni jagah nahi chodta aur kisi ko ane nahi deta.
+
+position:absolute;
+Agar hum position absolute dete hain without giving top, left, right, bottom, to wo element apni jagah chod dega and
+dusra element uski jagah per a javega. matlab absolute ekdum se ready ho jata hai position chnage karne ke liye.
+position:absolute bina property(top,left,bottom,right) ke mat do.
+Position:absolute body tag ya fir parent positioned element ke hisab se move karta hai. If it is in the another
+positioned element then it will move/start according to the parent element. We can move an element anywhere and its
+postion will be according to its property.
+(top,right, bottom,left).
+
+just for an experiment, ki parent ko position:relative de do aur internal ko position:absolute de do, ab internal tag
+apne parent ke hisab se move karega, kyuki parent tag apni jagah nahi chodega aur internal tag absolute hone ke karan
+apni jagah chod dega aur dusra tag uski jagah le lega.
+
+
+We can remove the problem of overlapping of two elements with the help of absolute position by giving the z-index
+property.
+Z-index sirf position ke sath kam karega. With the help of z-index we can remove overlapping. If z-index:-1; it will be
+shown behind the others.
+
+position:fixed; fixed the element and it will move up and down on scrolling the page.
+We need to declare the property where to show the element by giving top/bottom:10/20/30px to the property.
+
+Position:sticky; means the element is stuck and will move down while scrolling. Best exapmle are the menus.
+And for Safari it is declared with webkit like position: -webkit-sticky;
+
+Overflow attribute is used to control the text of an block element.
+NOTE: It only works with the block element.
+Overflow attribute has the following properties:
+visible -> This is by default property, In this "text" will not be cut and will be shown outside the element box
+hidden -> The text which will be out of box will be cut. Only the text which is in the box will be visible.
+scroll -> If the width of the box is small and text is more then it will add a scrollbar to the box.
+auto -> This is similar to the scroll but it adds scroll only when it is needed.
+
+In this img tag should be placed before the text.
+
+opacity means transparency of the image. By default it is 1 which means clear image.
+0.2 means less transparancy
+0.5 has more clearance than 0.2
+
+************************************ Float property****************
+
+
+Yahoo baba per clear:both ke liye query post ki hai. Video - 17.
+
+Floating issue resolved: Suppose there are three div's, jisme 2 div's ko humne float:left diya hai, to 3rd div
+background mein chala jayega. 3rd div ko niche lane ke liye hum "clear:both" use karenge. Per is se 3rd div mein
+margin-top nahi chalega. 3rd div se pehle ek aur div lo aur usse clear:both do, instead of giving this to the 3rd div,
+then margin-top will work.<br>
+
+1) clear:both lagane se yeh margin-top nahi leta,So clear:both ek alag div mein lagega;
+2) Ya fir PARENT div ko overflow:hidden do. Kyuki jis div ki height zayada hai margin-top mein wo us div ki height bi
+add karta hai.
+
+Agar 2 div hai parent and child and parent div mein sirf width hai height nahi per child div mein height and width dono
+hai. child div ko float left dene se parent div upper hi band ho jata hai kyuki uski koi height nahi hai. Ise theek
+karne ke liye, parent div jis mein height nahi hai, us mein display: flow-root lagao to parent div ki height theek ho
+jayegi.
+
+display:flow-root; => Parent div ke ander jab child div ko hum float left dete hain to parent div upper hi close ho jata
+hai aur child div bahar a jata hai. Ise theek karne ke liye hum parent div ko yeh property lagate hain.
+
+
+************************************ Background properties****************
+
+Font-size = % mein dene ka matlab ye apne parent size ke acc. chalega. Parent size body tag mein hota hai aur upper wale
+div mein bi ho sakta hain.<br>
+
+Below are the background properties
+1) background-color
+2) background-image
+3) background-repeat
+4) background-position:center, Is se image center mein rahegi, matlab ek side per mahi jayegi, aur fir background-size :
+cover de kar image ko div ke ander fit kar sakte hain.
+background-size:cover use karte hain image ko div mein pura cover karne ke liye.
+
+shortcut background-image:url(imagepath) no-repeat top right;
+
+5) background-size:contain/cover, Cover will fill the image in full div, per isme aspect ratio change ho sakta hai,
+contain bi image ko jitna fit kar sakta hain utna kar dega without any change in the aspect ratio, per isme thodi space
+reh sakti hai. so we can use 100%, 100%
+background-size:100%,100%;
+6) background-attachment
+background-attachment: scroll/fixed;
+
+background-image hum multiple de sakte hain COMMA se seperate karke.
+
+
+*************************************Transition**********************************
+
+Transition (is good) = hover per effect ko smoothness dene ke liye use karte hain. is se jatka nahi lagta.
+
+#trans{
+width:300px;
+height:200px;
+transition-property:width,height,background;
+transition-duration:2s,2s,2s
+}
+#trans:hover{
+width:400px;
+height:300px;
+background-color:orange;
+}
+OR
+transition: all,2s;
+
+Tag per hover
+input:hover{
+width:200px;
+}
+
+************************************************Responsive image******************
+
+Old method to make the images resoponsive
+img{
+width:100%
+}
+div{
+max-width:30%;
+}
+Ismein yeh problem thi ki images width wise to resonsive ho gayi ya div mein set ho gayi. But height wise nahi hui. YEH
+PROBLEM NEW METHOD "OBJECT-FIT" SE DUR HUI HAI.
+object-fit mein hum image ko height bi denge width:100% ke sath-sath, pehle hum sirf width:100% hi dete the. jitni
+height bahar div ko denge, utni height hum image tag ko bi denge.
+
+Object-fit = Yeh badi images(height/width wise) ko div mein fit karne ke liye use karte hain.
+img{
+width:100%;
+height:300px;
+object-fit:fill/contain/cover/scale-down;
+object-position:top/bottom; = Yeh image ki cropping ke liye use hoti hai..
+}
+
+Attribute selector kisi tag ke particular attribute ko select karne ke liye.
+tag[type]{
+color:blue;
+}
+e.g input[type]{
+color:red;
+}
+input[type='password']{
+color:green;
+}
+a[target]{
+color:green;
+}
+
+column-count:3 => To divide a div into columns(here 3 columns)
+column-gap:10px;
+column-rule:1px solid;
+
+user-select:none; = Yaha user koi bi text select nahi karta.
+
+***********************************************************************
+Advanced topics
+
+@media query
+Tansform 2D = transform: rotate(30deg)
+translate (means div ki position ko change karna x aur y axis ke according),
+skew (matlab teda meda karna),
+scale(matlab size ko 1 ya 2 ya 3 so on guna karna)
+Transform 2D sirf block ya inline-block elements per kam karta hai.
+
+Transform 3D = same properties as transform-2D but with z-axis.
+Perspective = Yeh property transform 3D ke sath kam karti hai, taki hame pura view dekhe ki effect ya animation kam
+kaise kar reha hai. transform 2d ke sath koi use nahi hai.
+Transform Style
+Faceback-visibility:visible/hidden
+Animation
+transorm:translate /* To consider apni height and width */
+
+***********************************************************************
+
+CSS Grid
+
+Download normalize.css - It has all the basic functionality to create a layout like margin: 0, padding:0
+
+
+**********************************************Mobile Resolution************************
+
+Width's
+mobile = min-width:200px and max-width:768px;
+tab = min-width:768px and max-width:998px;
+Laptop = > 998px;
+
+Various ways for responsive design:
+Using view port
+Using max-width/max-height
+Using CSS media query
+Using rem/em/vh units over pixel.
+
+onlineutilitywebsite.com => to check the size of viewport according to the screen.
+
+@media screen and (max-width:600px)
+{
+Yeh screen mobile ke liye hai. max-width ka matlab ki yaha jo css lagegi wo sirf 600px ki screen tak hi lagegi. Is pixel
+se upper hote hi yeh css nahi lagegi.
+}
+@media screen and (max-width:800px){
+matlab ki wo screen jo < 800px hai aur> 600px hai.
+	}
+
+	2em means 2 guna parent ke font-size ka, em means guna.
+	rem is the best over all other units.
+	***********************************************************************
+
+	CSS flex
+
+	display:flex
+	/* Important:== display:flex ke sath height aur width doge tabi align-items:center property chalegi*/
+	flex-grow:1 = means agar main div mein space hai to sari space ko use karte hue usko barabar ratio mein divide
+	karna, ya kisi bi ratio mein divide karna taki sari sapce use ki ja sake. Is property ko hum flex-item mein lagate
+	hain. flex-items ki common css ko flex-grow:1 property lagao to sari space use karte hue items pura main div kar
+	lenge. Aur agar kisi div ko extra bada karna hai to usko specific flex-grow:2 laga kar bada kar sakte hain. Sari
+	space ko apas mein divide karna.
+
+	flex-grow: To divide the free space equally.
+
+	flex-grow:2 yeh sabi div ki width double kar dega. Yeh sabi div ki equal width dene ke kam ata hai. ise hum
+	indiviual items per bi laga sakte hain.
+
+	flex-basis:200px = kisi flex-item ko apne according width dena. means this is the max-width and also the min-width
+	of any flex-item.
+
+	flex-shrink:0 = means wo wala div shrink nahi karega jab tak flex-basis(max-width) tak nahi paunch jata, matlab
+	responsiveness mein flex-basis tak yeh div shrink nahi hoga. ya resposive karte time jab width puri hai to kis div
+	ko gatana hai aur kis div ko nahi.
+	Shorthand flex: flex-grow flex-shrink flex-basis;
+
+	flex-shrink:1 means yeh div shrink ho sakta hain responsive mein.
+
+	margin-left/right:0 = Yrh itna clear nahi hai. Check karna padega. dene se div float:left/right ki tarah kam karte
+	hain. jis bi direction ka margin doge us
+	direction ki taraf free space show kar dega.
+	margin:auto; sara content div ke center mein a jayega.
+	Bachi hui space ko hum margin: 0 auto or simple auto se use kar sakte hain.
+
+	flex items ki hum ordering bi kar sakte hain by giving them order:1/2/3/-2/-4.. Isme minus ki ordering top ya pehle
+	hoti hai aur positive ki baad mein. Ordering responsive banane mein bahut kam ati hai, Hum small screen mein apni
+	marzi se div ko upper niche order kar sakte hain by giving ordering to them.

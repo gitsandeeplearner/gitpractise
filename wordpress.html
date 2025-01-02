@@ -1,0 +1,161 @@
+Main files are
+a) screenshot.php
+b) index.php
+c) style.css
+d) page.php
+e) functions.php
+f) single.php = To open the detail page of the post.
+g) category.php = category aur index files dono ka kam same hi hai posts ki listing ko display karwane ka. Fark sirf
+itna hai ki category file se hame cateogry ke according posts display hongi. Hum index file ko hi copy karke category
+wali file mein rakh denge. The code will be same for both the files.
+h) sidebar.php = To display the widgets in the sidebar.
+i) 404.php = Just create this page and call header and footer.php file.
+
+*************************************************
+WP admin option functions, All these functions will be in the function.php
+
+<?php register_nav_menus(
+    array(
+        "top-menu" => "Top menu"
+    )
+);
+
+?>
+
+This will create positions to display the widgets in the admin. We can create as many positions as we need and can
+display them on the frontend. Ek tareeke se har position sidebar hi hai.
+
+<?php 
+register_sidebar(
+    array(
+        "name" => "Left sidebar",
+        "id" => "lsidebar"
+    )
+);
+
+register_sidebar(
+    array(
+        "name" => "Footer 1",
+        "id" => "footer1"
+    )
+);
+
+
+?>
+
+<?php add_theme_support("post-thumbnails");?> Remember "dash" here not "underscore"
+<?php add_theme_support("custom-header"); ?> To add logo from the admin.
+<?php add_post_type_support('page','excerpt'); ?> This will add short description option for pages in the admin.
+<?php add_post_type_support('post','excerpt');?> This will add short description for the posts in the admin.
+
+
+
+*********************************************
+
+WP functions to use for frontend.
+<?php wp_nav_menu(
+    array(
+        "theme_location" => "top-menu",
+        "menu_class" => "nav"
+    )
+); 
+?>
+
+Sidebar ko get karne ke liye below code hai. Ise hum index aur page file mein likh sakte hain.
+<?php
+dynamic_sidebar('lsidebar');
+?>
+
+<?php
+dynamic_sidebar('footer1');
+?>
+
+Agar hame sidebar theme ki har jagah chahiye to hum sidebar.php naam ki ek file banayenge. aur use get_sidebar() se
+index file aur page.php file mein call kar lenege.
+
+
+<?php the_post() ?>
+<?php the_title() ?>
+<?php echo get_the_content() ?>
+<?php the_content() ?>
+<?php the excerpt(); ?> To display short description on the page and on the post.
+<?php echo site_url() ?>
+<?php the_post_thumbnail() ?> by default 150 * 150px
+<?php the_post_thumbnail('medium') ?> 300 * 300px
+<?php the_post_thumbnail('large') ?> 1024 * 1024 px
+<?php the_post_thumbnail('full') ?> original resolution
+<?php the_post_thumbnail(array(100,100)) ?> custom resolution
+<?php echo get_custom_header(); ?>
+
+<title>
+    <?php bloginfo('name');?> = website ka naam windows bar mein display karwane ke liye.
+    <?php wp_title() ?> = To get the page title of the website in the windows bar.
+
+    To check if the page is front page or not
+    is_front_page(){
+    bloginfo('description'); = This is the tagline which displays in the windows title bar.
+    }
+</title>
+
+
+Page.php is used to display all the pages. Here we call header.php body part and footer.php
+
+For different design of the pages like for Gallery page, Contact page, Courses etc.. create Custom page template. These
+pages have different design so need to create different template for them.
+For this, create a file in the theme folder (optional e.g by giving prefix template-contact-us.php)
+Now place PHP comments
+<?php //Template Name:contact us ?> in the file.
+This will appear while creating page from the admin on the right side under page attribute option. We can select the
+desired template from there.
+Now in the above created file call the header and footer files and the body as well.
+
+Home page or landing page ke liye hum home template bana lenge jisme sare frontend ko display karwane ka code hoga aur
+ise admin se "Reading" option ke under set kar denge. And for posts, hum ek Blog page banyenge (Ya koi aur page bi bana
+sakte hai yaha per posts display karni hai) aur use bi post le liye admin se set kar denge. Ab yeh Blog page posts ke
+liye index.php ko call kar lega, kyuki by default index.php hi post display karti hai.
+
+To display Listing of Posts:
+Posts hamesha hi index.php file se ayengi.
+So, in the index.php, write below: The below code will not work in any other file except index.php file.
+<?php while(have_posts()){
+the_post();
+ the_title();
+ the_content();
+ the_excerpt();
+ the_post_thumbnail();
+ the_permalink(); = If it is in the loop then it will automatically pass the id in the link.
+ the_permalink(9); = Here we are passing the id 9 to the generated link.
+
+ ?>
+html part here for the designing.
+<?php
+}?>
+
+Install wp-pagenavi plugin to display the pagination on the listing page of the posts.
+Place
+<?php echo wp_pagenavi(); ?> in the index file.
+
+Agar hum koi bi plugin use karte hain to us ki css aur js file call karne ki liye hame header.php mein
+
+<head> tag ke ander
+    <?php echo wp_head();?>
+</head>
+aur footer.php file mein last mein
+<?php wp_footer(); ?> call karna padega. Ab sari css aur js file mein include ho jayengi.
+Question: Kya hum koi bi plugin call kar sakte hain apni cutoomized theme mein?
+
+To open the detail page of the post , create "Read more" button with the anchor link and echo the_permalink();.It will
+open the single.php file.
+
+Follow the same process and function as for page.php to display the details.
+
+To display comments on post detail page, use
+<?php comment_form(); ?> , Is se sirf comment ka form hi ayega, comments ki listing nahi, us ke liye hum use karange
+<?php wp_comment_list() ?>
+Css ke liye inspect karo, class lagi lagai mil jayengi aur unhe style.css mein code kar lo.
+Alternatively, hum
+<?php comments_template() ?> bi use kar sakte hain. Is se hume form aur listing dono mil jayenge. Alag-alag nahi lagana
+padega.
+
+For the custom post type like "News","Courses" etc, we will install plugin wp custom post type maker. Isse admin mein
+left panel per woh custom post type display ho jayega.

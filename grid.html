@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Grid</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assests/css/style.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+Bootstrap's grid system is built with flexbox and allows up to 12 columns across the page.<br>
+The Bootstrap grid system has five classes,These classes are just like the limits(Width), after these limits the div will take the full width.<br>
+Class "Row" ko "display:flex" lagta hai, so inside row all boxes will be inline. Row ko hum "COL's" mein bi divide kar sakte hain nahi to apni khud ki width bi de sakte hain.<BR><strong> NOTE: COL AUR WIDTH KABI BI SATH NAHI LAGENGE.</strong> "COL" bi ek tarah ki width hai jise hum "px" ya "%" mein nahi dete per div ko laga sakte hai without row. 
+"Col" class will always be under the "row" class.<br><br>
+
+Ek hi row mein agar sirf 2 ya 3 col dikhane hain to row class ke sath .row-cols-2/3 use kare. Baki columns ultimately niche a jayenge equall width mein.<br>
+
+
+.col- (extra small devices - screen width less than 576px) = Mobiles<br>
+.col-sm- (small devices -    screen width equal to or less than 576px) = Mobiles with bigger screen<br>
+.col-md- (medium devices -   screen width equal to or less than 768px) = Tabs<br>
+.col-lg- (large devices -    screen width equal to or less than 992px) = Small Laptops<br>
+.col-xl- (xlarge devices -   screen width equal to or greater than 1200px) = Laptops <br>
+
+By default padding in the col classes are 15px from left and right.<br>
+To align the div's horizontally just use these classes in row class:-justify-content-between, justify-content-around,justify-content-end,justify-content-center<br><br>
+
+To skip some cols, use offset-3 , offset-md-3	
+
+classes for background<br>
+.bg-primary,.bg-secondary,.bg-success,.bg-warning,.bg-danger,.bg-info,.bg-dark,.bg-light.<br><br>
+
+Classes for text<br>
+.text-primary,.text-secondary,.text-success,.text-warning,.text-danger,.text-info,.text-white<br><br>
+
+Classes for the alignment of text<br>
+text-left,text-right,text-center,text-justify,text-uppercase,text-lowercase,text-captialize We can also use them with breaks<br><br>
+
+Classes for button<br>
+btn-primary,btn-secondary,btn-success,btn-warning,btn-danger should be used with "btn"<br>
+e.g. 'input type="submit" class="btn btn-primary btn-lg btn-sm" name="submit"'=> <input type="submit" class="btn btn-primary btn-lg" name="submit"><br> 
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col">1</div>
+		<div class="col">2</div>
+		<div class="col">3</div>
+		<div class="col">4</div>
+		<div class="col">5</div>
+		<div class="col">6</div>
+		<div class="col">7</div>
+		<div class="col">8</div>
+		<div class="col">9</div>
+		<div class="col">10</div>
+		<div class="col">11</div>
+		<div class="col">12</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col">1</div>
+		<div class="col">2</div>
+		<div class="col">3</div>
+		<div class="col">4</div>
+		<div class="col">5</div>
+		<div class="col">6</div>
+		<div class="col">7</div>
+		<div class="col">8</div>
+		<div class="col">9</div>
+		<div class="col">10</div>
+		<div class="col">11</div>
+		<div class="col">12</div>
+	</div>
+	<div class="row">
+	    <div class="col-sm-2 bg-primary" >Taking 2 cols- Break on small screen</div>
+	    <div class="col-sm-3 mr-lg-5 pl-5 check" style="background-color:goldenrod;">3 cols- Break on small screen with padding left and margin right on large screen. Is div ko width 40% di hai, but "COL" lagne ka karne width kaam nahi karegi.</div>
+	    <div class="col-md-4">
+		    <div class="row">
+		    	<div class="col-6 blue text-center">4-col, Iske ander "row" class hai, jise col-6(SANDEEEP),col-6(Kumar) mein equally divide kiya hai. </div>
+		    	<div class="col-6 green">col-6 Kumar</div>	
+		    </div>
+		</div>
+	    <div class="col-sm-2" style="background-color:lavender;">2 cols- Break on small screen</div>
+  	</div>
+  	<div class="row my-2">
+  		<div class="customclass">These are the custom div's </div>
+  		<div class="customclass">without columns and </div>
+  		<div class="customclass">with width 15% and our styling.</div>
+  	</div>
+  	<div class="row blue">
+  		<div class="col py-3">This is "PY-3" class for padding from top and bottom. Same "PX-3" we can use for padding from left and right </div>
+  	</div>
+  	<div class="row green my-4 ">
+  		<div class="col">This is "MY-5" class for margin from top and bottom. Same "MX-5" we can use for margin from left and right</div>
+  	</div>
+  	<div class="row justify-content-around">
+  		<div class="col-4 blue pl-5 ">This is the first div and these are with justify content around class</div>
+  		<div class="col-4 green">This is the second div</div>
+  		
+  	</div>
+  	<div class="m-4 red">
+  		<div class="col-3 pink ">These div's are </div>
+  		<div class="col-4 red">Without row class, </div>
+  		<div class="col-4 blue">It will take the cols </div>
+  		<div class="col-4 green">but will also take the margin from the left</div>
+  	</div>
+  	<div class="row flex-column">
+  		<div class="col-4 red">Flex-column, To display the</div>
+  		<div class="col-4 blue">columns vertically in a row class</div>
+  		<div class="col-2 green">use class flex-column, Margin from the left will not be there. </div>
+  	</div>
+  	<div class="row m-2">
+  		<div class="col-md-3 blue">Very Important!!!. This is to</div>
+  		<div class="col-md-3 green">display none</div>
+  		<div class="col-md-3 red d-none d-sm-block">the third div</div>
+  		<div class="col-md-3 blue">on small mobile screen</div>
+  	</div>
+  	<div class="row red">
+  		<div class="col-4 m-auto green"><strong>This div is with margin auto</strong> lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </div>
+  		<div class="col-3 blue">ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum </div>
+  	</div>
+  	<div class="row row-cols-4 my-2 ">
+  		<div class="col">class row-cols-4</div>
+  		<div class="col">Waise to ek row mein 12 cols ate hain</div>
+  		<div class="col">per agar hum 2 ya 3  ya 5 cols</div>
+  		<div class="col">dena chahte hain to class row-cols-3/4/5 </div>
+  		<div class="col">class row ke use kare. Yeh row ke ander sabi cols per implement ho jayega.</div>
+  		
+  	</div>
+  	<div class="row my-2 text-center">
+  		<div class="col">Agar kisi particular columns ke baad hum</div>
+  		<div class="col">break dena chahte</div>
+  		<div class="col ">hain to <strong>"CLASS W-100"</strong> use kare. But without col class. </div>
+  		<div class="w-100"></div>
+  		<div class="col">Yeh class col class ke sath nahi lagti. Yeh us row mein break ke baad baki</div>
+  		<div class="col">sare columns next line</div>
+  		<div class="col">le ayega aur equally divide kar dega.</div>
+  		<div class="col">Ek row mein hum</div>
+  		<div class="col">ek se zayada bi break w-100</div>
+  		<div class="col">de sakte hain.</div>
+  	</div>
+  	<div class="form-group">
+  		<label for="fname">Name</label>
+  		<input type="text" name="fname" id="fname" class="form-control">
+  	</div>
+  	<div class="form-group">
+  		<label>Password</label>
+  		<input type="text" name="lname" class="form-control">
+  		<small class="text-muted ">Password must be 8-20 characters long</small>
+  	</div>
+  	<div class="row mb-4 justify-content-center">
+  		<div class="col-6 btn btn-primary btn-block">Submit</div>
+  	</div>
+</div>
+
+</body>
+</html>

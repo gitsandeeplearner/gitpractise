@@ -1,0 +1,56 @@
+Object declaration <br> let myobj = {fname:"sandeep",lname:"kumar",Full name:"sandeep kumar", data:{1,2},marks:[30,50]}
+<br><br>
+Use let & const instead of "var". "var" is also good but it gives problem somewhere.
+
+"const" is for the constant object, and "let" is for the changeable object.
+<br><br>
+To print the object in js or html file, use document.write(myobj.fname);
+
+To access properties, mybj.fname ,It will print "sandeep".
+myobj['Full Name'], It will print "sandeep Kumar" => This is to print the space between the keys.<br>
+
+
+In object we can put objects, arrays, boolean, string, anything.<br>
+
+Below is json, used to store and exchange data.<br><br>
+ var Jsonobj = {"fname":"sandeep", "lname":"kumar"}<br>
+ Jsonobj.fname; // To get the data of fname.
+NOTE: ALWAYS USE DOUBLE QUOTTES NOT EVEN SINGLE QUOTES<br>
+ To get the data from json use,<br>
+ $data =  parseJASON(response);
+ $name = $data.name;
+
+ OR Simply,
+  Jsonobj.fname;
+
+
+In php, We use json for Api's, to get and return the data from the apps.<br>
+json_encode is used to convert the arrays's(results from db) into Json.<br>For example, hum db mein se data fetch kar rehe hain, then it will be in array format, we can convert this array in json and can pass this value to the andriod and IOS app.<br>
+json_encode($result) is used to return the $result from the database.<br>
+mysqli_fetch_all(); -> will give the result in multi-dimensional array with the index(without key-names).<br>
+mysqli_fetch_assoc(); -> will give the results with key and their values without indexing. <br>
+
+Simple array:<br>
+$arr = ["Ram", "Sita", "Laxman"];<br>
+
+Assoc array means key and its value.<br>
+Assoc Array:<br> 
+$arr = ['Son'=>"Ram",'daughter-in-law'=>"Sita",'brother':"Laxman"];<br>
+To convert the above array into json:<br>
+json_encode($arr);<br>
+It will be as follows:<br>
+{"Son":"Ram","daughter-in-law":"Sita","brother":"Laxman"};<br><br>
+
+We can also show the json format data in the php file by getJSON(abc.php) function and can append the data in the php file.<br>OR<br>
+With ajax method, here we also have to pass the "datatype:JSON".<br>
+$.ajax({
+    url:"abc.php",
+    type:"post",
+    datatype:"JSON",       // Is datatype se hum yeh batate hain,jo data a reha hain wo JSON mein hai.             
+    success:function(data){
+        $.each(data,function(key,value){
+            $.("#load-data").apppend(value.id+" "+value.name);
+        });
+    }
+
+}); 

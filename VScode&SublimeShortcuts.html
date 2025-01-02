@@ -1,0 +1,112 @@
+json
+How to speed up website
+api's
+Google adsense
+Images in HTML and CSS
+
+
+***************** Sublime Shortcuts *************
+
+To select multiple lines. = Ctrl + l
+Duplicate the line = ctrl+shift+D.
+To move the line up and down. = Ctrl + shift + up/down arrow.
+To insert the same word on multiple lines = ctrl + click and again ctrl + click on the other lines.
+HTML Comments = Ctrl + /
+console.log(message); is to debug js.
+
+***************** VS Code shortcuts *************
+
+alt+z to wrap the lines.
+To select multiple lines. = Ctrl + l
+Duplicate the line = alt+shift+up/down arrow.
+To move the line up and down. = shift + up/down arrow.
+HTML Comments = Ctrl + /
+
+
+****************** Jquery ajax ****************
+
+NOTE: jqery call will always be in $(document).ready(function(){}
+
+Two methods
+1) $.ajax(url, type, data, callback function);
+$.ajax(abc.php,post,name=sandeep)
+e.g-> $.ajax({
+url:"abc.php",
+type:"post",
+data: $("#myform input").serialize(), // It will bind all the keys with their values of the form.
+// firstname=sandeep&lastname=kumar.Now $firstname = sandeep
+sucess:function(data){
+console.log(data); // It will print the response from server.
+},
+});
+
+To get the values on abc.php, we need to extract the request or post data.
+extract($_POST);
+
+
+2) $.post(url,data,callback function);
+e.g-> $.post("abc.php",
+{firstname:sandeep,lastname:kumar}, // var firstname = $("#fname").val(); = sandeep
+function(data,status){ // data is the response from the server.
+$(#textchange).html(data);
+});
+
+To get the values on abc.php:
+$fname = $_REQUEST['firstname'];
+
+
+****************** Wordpress *******************
+
+For the landing of the website
+If from the admin "Your latest posts" is set then it will work like below:
+front-page.php > home.php.index.php
+
+For internal pages = Template file > Page.php > Index.php
+
+For displaying menu link content.
+
+If General Settings(Posts Page) is set home.php/index.php > Template file > Page.php > Index file
+
+
+front-page.php > Page.php > index.php
+
+
+Single.php is for displaying the full detail of post.
+Singular.php is also for displaying the post in the absence of Single.php
+
+Single.php > Singular.php > Index.php
+
+Page.php is for displaying the detail page.
+Singular.php is also used for displaying the full detail page in the absence of the page.php
+
+
+Page.php > Singular.php > Index.php
+
+Singular.php is for the displaying the detail page of both Posts and Pages in the absence of their masters
+files(Single.php and Page.php).
+
+index.php and home.php both are same files used to display the posts.
+home.php > index.php
+So, if home.php is present, then landing page will be home.php not index.php
+If we want to display the posts on menu link (Home/Blog/Any), then we can set it from the admin->Settings->Reading->Post
+Page. It will display the lisiting of the posts on that page.
+
+
+******************Plugin development*************
+
+Create a custom folder and inside this create a file name same as folder name.
+
+action_hook = admin_menu calling method add_menu_page and for sub menu add_submenu_page
+
+Directoy path to include php files = plugin_dir_path(__FILE__);
+Url path to include images/js/css = plugins_url();
+
+To css and js files, it should be in the main file(pluginname.php) just as function.php and we will call these methods
+by action hooks.
+add_action('init','functionname') = wp_enqueue_style()/wp_enqueue_script() to add style and scripts.
+
+register_activation_hook(__FILE__,''); is used to create a table at the time of plugin activation.
+On deactivation of plugin = register_deactivation_hook(__FILE__,'');
+On deletion of plugin = register_uninstall_hook(__FILE,''); => Will delete the files also.
+
+wp_insert_post($page); where $page is an array.$page['post_title'],$page['post_content'],$page['post_slug']

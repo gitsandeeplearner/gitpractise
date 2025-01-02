@@ -1,0 +1,42 @@
+<script type="text/javascript">
+	$(document).ready(funtion(){
+		$("$submit").click(function(e){
+			e.preventDefault(); 		// This is very important, It will not fire the default action of the 									"Submit" and the page will not reload.
+			$("form").serialize();		//Serailize karne se form ke sare attributes "&" sign laga kar ek string 								bana lenge, jise hum baad mein data dusri file ko post karne ke liye 									use karange.
+//     BY POST METHOD
+
+			$.post(
+					"abc.php",							// URL
+					{									// DATA
+						fname:"sandeep",
+						lname:"kumar"
+					},	
+					function(data,status){				// Call Back Function
+						$("#textchange").html(data);
+					}
+				);
+
+//		BY AJAX METHOD
+
+			$.ajax({
+				url:"abc.php",
+				data:{ String/Array/Object },
+				type:"post",
+				success:function(data,status){
+					$("#changetext").html(data);
+				}
+			});
+		
+		});
+	});
+</script>
+<body>
+	<h2>abc.php file mein hum data to fetch karne ke liye query mein "$keyname" ke sath fetch kar sakte hain. kyuki form ka data humne serialize kiya hua hai.</h2>
+	$con = mysqli_connect("localhost",root,"","dbname");
+	$q = "Select * from table";
+	$results = mysql_query($con,$q);
+	while($row = mysqli_fetch_assoc){		// mysqli_fetch_assoc gives the id and name from db 
+			$row['name'];
+	}
+
+</body>
